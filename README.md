@@ -15,13 +15,13 @@ Ce projet présente le déploiement complet d’une solution de supervision Zabb
 Ce dépôt accompagne le rapport de projet réalisé par Boubker Cheyoukh et regroupe l’ensemble des fichiers de configuration, scripts et ressources nécessaires pour reproduire l’infrastructure de supervision dans un environnement AWS.
 
 ###  Objectifs
-*   **Surveillance hybride : Superviser des instances Ubuntu et Windows Server.
+Surveillance hybride : Superviser des instances Ubuntu et Windows Server.
 
-**Conteneurisation : Déployer Zabbix à l’aide de Docker Compose afin de garantir portabilité et simplicité.
+Conteneurisation : Déployer Zabbix à l’aide de Docker Compose afin de garantir portabilité et simplicité.
 
-**Cloud AWS : Exploiter une infrastructure fiable basée sur EC2, VPC et Security Groups.
+Cloud AWS : Exploiter une infrastructure fiable basée sur EC2, VPC et Security Groups.
 
-**Automatisation : Faciliter et accélérer le déploiement de la solution de monitoring.
+Automatisation : Faciliter et accélérer le déploiement de la solution de monitoring.
 ---
 
 ##  Table des Matières
