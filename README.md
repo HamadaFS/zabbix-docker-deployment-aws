@@ -8,21 +8,23 @@
 
 ---
 
-## 📖 Introduction
+##  Introduction
 
-Ce projet documente le déploiement complet d'une solution de supervision **Zabbix** conteneurisée sur le cloud **AWS**. L'objectif est de fournir une surveillance proactive des infrastructures, qu'elles soient basées sur Linux ou Windows.
+Ce projet présente le déploiement complet d’une solution de supervision Zabbix conteneurisée sur le cloud AWS. L’objectif principal est de mettre en place une surveillance proactive et centralisée des infrastructures informatiques, qu’elles soient basées sur Linux ou Windows.
 
-Ce dépôt accompagne le rapport de projet réalisé par **Boubker Cheyoukh** et contient tous les fichiers de configuration nécessaires à la reproduction de l'infrastructure.
+Ce dépôt accompagne le rapport de projet réalisé par Boubker Cheyoukh et regroupe l’ensemble des fichiers de configuration, scripts et ressources nécessaires pour reproduire l’infrastructure de supervision dans un environnement AWS.
 
-### 🎯 Objectifs
-*   **Surveillance hybride** : Monitorer des instances Ubuntu et Windows Server.
-*   **Conteneurisation** : Déploiement via Docker Compose pour la portabilité.
-*   **Cloud AWS** : Infrastructure robuste (VPC, Security Groups, EC2).
-*   **Automatisation** : Déploiement rapide de la stack de monitoring.
+###  Objectifs
+*   **Surveillance hybride : Superviser des instances Ubuntu et Windows Server.
 
+**Conteneurisation : Déployer Zabbix à l’aide de Docker Compose afin de garantir portabilité et simplicité.
+
+**Cloud AWS : Exploiter une infrastructure fiable basée sur EC2, VPC et Security Groups.
+
+**Automatisation : Faciliter et accélérer le déploiement de la solution de monitoring.
 ---
 
-## 📑 Table des Matières
+##  Table des Matières
 1.  [Architecture Réseau & Flux](#-architecture-réseau--flux)
 2.  [Mise en place de l'Infrastructure AWS](#-mise-en-place-de-linfrastructure-aws)
 3.  [Installation du Serveur Zabbix (Docker)](#-installation-du-serveur-zabbix-docker)
@@ -32,7 +34,7 @@ Ce dépôt accompagne le rapport de projet réalisé par **Boubker Cheyoukh** et
 
 ---
 
-## 🏗 Architecture Réseau & Flux
+##  Architecture Réseau & Flux
 
 L'infrastructure repose sur un VPC AWS dédié avec une segmentation claire.
 
@@ -86,7 +88,7 @@ Ports autorisés :
 
 ---
 
-## 🚀 Installation du Serveur Zabbix (Docker)
+##  Installation du Serveur Zabbix (Docker)
 
 ### 1. Prérequis
 *   Accès SSH à l'instance serveur.
@@ -130,7 +132,7 @@ sudo systemctl restart zabbix-agent
 
 ---
 
-## 📈 Supervision & Résultats
+##  Supervision & Résultats
 
 Une fois configurés, les agents remontent les métriques (CPU, RAM, Disque) vers le serveur.
 *   **Statut ZBX** : Doit être vert dans l'interface.
@@ -138,7 +140,7 @@ Une fois configurés, les agents remontent les métriques (CPU, RAM, Disque) ver
 
 ---
 
-## 📂 Contenu du Dépôt
+##  Contenu du Dépôt
 
 Ce dépôt contient l'ensemble des ressources techniques :
 
@@ -149,9 +151,9 @@ Ce dépôt contient l'ensemble des ressources techniques :
 
 ---
 
-## 👤 Auteur
+##  Auteur
 
-**Boubker Cheyoukh**
+**Hamada Faris**
 *   Projet : Supervision Réseau & Cloud
 *   Technos : Zabbix, Docker, AWS
 
