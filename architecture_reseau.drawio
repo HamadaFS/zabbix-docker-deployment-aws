@@ -1,0 +1,77 @@
+<mxfile host="app.diagrams.net" modified="2024-05-22T12:00:00.000Z" agent="Manual" etag="v1" version="21.0.0" type="device">
+  <diagram id="ZabbixDockerAWS" name="Page-1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- AWS Cloud Container -->
+        <mxCell id="aws_cloud" value="AWS Cloud (EC2 Instance)" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fillColor=#FF9900;strokeColor=#d79b00;fontColor=#ffffff;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="600" height="480" as="geometry" />
+        </mxCell>
+
+        <!-- Docker Host Container -->
+        <mxCell id="docker_host" value="Docker Host" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fillColor=#2496ED;strokeColor=#005F9E;fontColor=#ffffff;rounded=1;arcSize=10;" vertex="1" parent="aws_cloud">
+          <mxGeometry x="40" y="40" width="520" height="400" as="geometry" />
+        </mxCell>
+
+        <!-- Zabbix Web Container -->
+        <mxCell id="zabbix_web" value="Zabbix Web&#xa;(Nginx)&#xa;Port 80:8080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="docker_host">
+          <mxGeometry x="40" y="60" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Zabbix Server Container -->
+        <mxCell id="zabbix_server" value="Zabbix Server&#xa;Port 10051" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="docker_host">
+          <mxGeometry x="320" y="60" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Zabbix DB Container -->
+        <mxCell id="zabbix_db" value="Zabbix DB&#xa;(MySQL 8.0)&#xa;Port 3306" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="docker_host">
+          <mxGeometry x="190" y="240" width="120" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- External User -->
+        <mxCell id="user" value="User / Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="160" width="40" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- External Agent -->
+        <mxCell id="agent" value="External Server&#xa;(Zabbix Agent)" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="760" y="160" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <!-- User to Web -->
+        <mxCell id="edge1" value="HTTP (80)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="user" target="zabbix_web">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Web to Server -->
+        <mxCell id="edge2" value="Internal (10051)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="docker_host" source="zabbix_web" target="zabbix_server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Web to DB -->
+        <mxCell id="edge3" value="SQL (3306)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="docker_host" source="zabbix_web" target="zabbix_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Server to DB -->
+        <mxCell id="edge4" value="SQL (3306)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="docker_host" source="zabbix_server" target="zabbix_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Agent to Server -->
+        <mxCell id="edge5" value="TCP (10051)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="agent" target="zabbix_server">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="200" />
+              <mxPoint x="740" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

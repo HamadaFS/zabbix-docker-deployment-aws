@@ -1,0 +1,5 @@
+MYSQL_DATABASE=zabbix
+MYSQL_USER=zabbix
+MYSQL_PASSWORD=strong_password
+MYSQL_ROOT_PASSWORD=strong_root_password
+ZBX_PHP_TZ=Europe/Paris
